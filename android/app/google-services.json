@@ -1,0 +1,70 @@
+{
+  "project_info": {
+    "project_number": "307321601096",
+    "firebase_url": "https://estaciomobi.firebaseio.com",
+    "project_id": "estaciomobi",
+    "storage_bucket": "estaciomobi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:307321601096:android:6ead4a563d320edc",
+        "android_client_info": {
+          "package_name": "com.estaciomobi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "307321601096-7o2jnm2kpgg3318ri9d1ok3qhinbbhnj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.estaciomobi",
+            "certificate_hash": "478375be3c2b0efa77791a7ae80cc96b9d242555"
+          }
+        },
+        {
+          "client_id": "307321601096-f97crqk7bvg2d9q57gsftjnlchbhrdgp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.estaciomobi",
+            "certificate_hash": "5fcd55a1e94413aff41d066ef9f1d14a04f8a9bd"
+          }
+        },
+        {
+          "client_id": "307321601096-lns6afd2f8elakqtadmrudig0mu8regq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-DSt5K8TBZ2ITE3CjPzVpFV1TqOKTDao"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "307321601096-ph5tkldhqov4288ac9hkejnr4ugc875u.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "307321601096-jpocbm5rtt137d4mgpkdi03troq82rb0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.agenciazbra.estaciomobi"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,42 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '9.0'
+
+target 'Estaciomobi' do
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+
+  # Pods for Estaciomobi
+  pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga/Yoga.podspec'
+
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
+  pod 'Firebase/Messaging'
+  pod 'Firebase/Storage'
+  pod 'FBSDKCoreKit'  
+  pod 'FBSDKLoginKit'
+  pod 'FBSDKShareKit'
+  pod 'FBSDKPlacesKit'
+  pod 'FBSDKMessengerShareKit'
+  pod 'GoogleSignIn'
+  pod 'GoogleMaps'
+  pod 'Google-Maps-iOS-Utils'
+
+  target 'EstaciomobiTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
+
+target 'Estaciomobi-tvOS' do
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+
+  # Pods for Estaciomobi-tvOS
+  target 'Estaciomobi-tvOSTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
