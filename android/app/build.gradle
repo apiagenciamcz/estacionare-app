@@ -196,6 +196,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-firestore:17.0.2'
     implementation 'com.google.firebase:firebase-functions:16.0.1'
     implementation "com.google.firebase:firebase-messaging:17.1.0"
+    implementation project(':react-native-svg')
 
     implementation 'com.android.support:multidex:1.0.3'
 }

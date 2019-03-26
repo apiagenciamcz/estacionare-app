@@ -29,6 +29,8 @@
 		"react-native-navigation-directions": "^1.0.3",
 		"react-native-print": "^0.5.0",
 		"react-native-qrcode-scanner": "^1.1.0",
+		"react-native-shadow": "^1.2.2",
+		"react-native-svg": "5",
 		"react-native-swiper": "^1.5.13",
 		"react-native-video": "^3.2.1",
 		"react-navigation": "^2.8.0",
