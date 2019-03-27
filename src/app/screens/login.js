@@ -8,7 +8,6 @@ import {
   KeyboardAvoidingView,
   ImageBackground,
   StatusBar,
-  TextInput,
   TouchableOpacity,
   Dimensions,
   Platform
@@ -50,17 +49,17 @@ class Login extends React.Component {
     const { loading, email, password } = this.props.login;
 
     return (
-      <KeyboardAvoidingView
-        keyboardVerticalOffset={Platform.OS == "android" ? -500 : 0}
-        behavior="padding"
-        enabled
-        style={{ flex: 1 }}
+      <ImageBackground
+        source={require("../images/background.png")}
+        style={styles.container}
       >
-        <ScrollView>
-          <ImageBackground
-            source={require("../images/background.png")}
-            style={styles.container}
-          >
+        <KeyboardAvoidingView
+          keyboardVerticalOffset={Platform.OS == "android" ? -500 : 0}
+          behavior="padding"
+          enabled
+          style={{ flex: 1 }}
+        >
+          <ScrollView>
             <StatusBar backgroundColor="black" barStyle="light-content" />
 
             <Loading loading={loading} />
@@ -106,9 +105,9 @@ class Login extends React.Component {
                 <BtnPrimary text="PRÓXIMO" />
               </TouchableOpacity>
             </View>
-          </ImageBackground>
-        </ScrollView>
-      </KeyboardAvoidingView>
+          </ScrollView>
+        </KeyboardAvoidingView>
+      </ImageBackground>
     );
   }
 }
