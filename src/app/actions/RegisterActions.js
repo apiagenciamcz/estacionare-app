@@ -87,9 +87,11 @@ export const handlerCreateFacebook = () => dispatch => {
         return AccessToken.getCurrentAccessToken();
       })
       .then(data => {
+        console.log(data);
         const credential = firebase.auth.FacebookAuthProvider.credential(
           data.accessToken
         );
+        console.log(credential, "credential");
 
         dispatch({
           type: "CHANGED_NAME",
@@ -100,6 +102,7 @@ export const handlerCreateFacebook = () => dispatch => {
           .auth()
           .signInWithCredential(credential)
           .then(user => {
+            console.log(user, "USERRR");
             const currentUser = user._user.uid;
             AsyncStorage.setItem("CurrentUser", currentUser).then(() => {
               dispatch(loading(false));

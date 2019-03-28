@@ -212,12 +212,11 @@ export const getlistReceipts = () => dispatch => {
       .ref(`users/${userID}/receipts`)
       .once("value")
       .then(snapshot => {
-        console.log(snapshot.val());
-
-        dispatch({
-          type: "GET_RECEIPTS",
-          payload: snapshot.val()
-        });
+        if (snapshot.val() != null)
+          dispatch({
+            type: "GET_RECEIPTS",
+            payload: snapshot.val()
+          });
       });
   });
 };

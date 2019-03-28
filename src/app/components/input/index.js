@@ -57,7 +57,13 @@ export default class Input extends Component {
               // placeholderTextColor={this.props.placeholderTextColor}
               // placeholder={this.props.placeholder}
               // value={this.props.value}
-              style={[styles.input, { width: this.props.widthInput || 260 }]}
+              style={[
+                styles.input,
+                {
+                  width: this.props.widthInput || 260,
+                  textAlign: this.props.center ? "center" : null
+                }
+              ]}
               onFocus={() => this.setState({ isFocus: !this.state.isFocus })}
               onBlur={() => this.setState({ isFocus: !this.state.isFocus })}
               // onChangeText={() => this.props.onChangeText}

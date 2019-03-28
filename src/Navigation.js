@@ -41,9 +41,13 @@ import DrawerHome from "./app/screens/drawer";
 import DrawerMap from "./app/screens/drawerMap";
 
 const AppRouteConfigs = {
+  Home: {
+    screen: DrawerHome,
+    navigationOptions: { header: null, gesturesEnabled: false }
+  },
   Loader: { screen: Loader, navigationOptions: { header: null } },
-  Welcome: { screen: Welcome },
   Login: { screen: Login },
+  Welcome: { screen: Welcome },
   RegisterStepOne: { screen: RegisterStepOne },
   RegisterStepTwo: { screen: RegisterStepTwo },
   RegisterStepThree: { screen: RegisterStepThree },
@@ -59,10 +63,7 @@ const AppRouteConfigs = {
   Receipt: { screen: Receipt },
   ReceiptCredit: { screen: ReceiptCredit },
   ReceiptTax: { screen: ReceiptTax },
-  Home: {
-    screen: DrawerHome,
-    navigationOptions: { header: null, gesturesEnabled: false }
-  },
+
   Profile: { screen: Profile },
   Notifications: { screen: Notifications },
   Payment: { screen: Payment },

@@ -56,11 +56,11 @@ class Toolbar extends Component {
               style={{
                 width: "100%",
                 backgroundColor: "red",
-                height: 100,
+                height: 50,
                 bottom: 0,
                 position: "absolute",
                 backgroundColor: "#2B2B2B",
-                top: 22
+                top: 40
               }}
             />
 
@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
   },
 
   baseIcon: {
-    height: 74,
+    height: 50,
     justifyContent: "center",
     alignItems: "center"
   },
