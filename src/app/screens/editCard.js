@@ -45,7 +45,7 @@ class EditCard extends React.Component {
   render() {
     const { cardEdit, operatorCardEdit, fontSize, mainCard } = this.props.user;
 
-    console.log(mainCard);
+    console.log(this.props.user);
 
     return (
       <KeyboardAvoidingView

@@ -41,10 +41,6 @@ import DrawerHome from "./app/screens/drawer";
 import DrawerMap from "./app/screens/drawerMap";
 
 const AppRouteConfigs = {
-  Home: {
-    screen: DrawerHome,
-    navigationOptions: { header: null, gesturesEnabled: false }
-  },
   Loader: { screen: Loader, navigationOptions: { header: null } },
   Login: { screen: Login },
   Welcome: { screen: Welcome },
@@ -56,6 +52,10 @@ const AppRouteConfigs = {
   TermsUse: { screen: TermsUse },
   Confirm: { screen: Confirm },
   Tutorial: { screen: Tutorial },
+  Home: {
+    screen: DrawerHome,
+    navigationOptions: { header: null, gesturesEnabled: false }
+  },
   PayStepOne: { screen: PayStepOne },
   PayStepTwo: { screen: PayStepTwo },
   PayStepThree: { screen: PayStepThree },

@@ -38,21 +38,23 @@ class AddCredit extends React.Component {
   }
 
   render() {
+    const width =
+      Dimensions.get("window").width - Dimensions.get("window").width * 0.254;
     const { fontSize } = this.props.user;
     const { outherValue } = this.props.money;
 
     return (
-      <KeyboardAvoidingView
-        keyboardVerticalOffset={Platform.OS == "android" ? -500 : 0}
-        behavior="padding"
-        enabled
-        style={{ flex: 1 }}
+      <ImageBackground
+        source={require("../images/background.png")}
+        style={styles.container}
       >
-        <ScrollView>
-          <ImageBackground
-            source={require("../images/background.png")}
-            style={styles.container}
-          >
+        <KeyboardAvoidingView
+          keyboardVerticalOffset={Platform.OS == "android" ? -500 : 0}
+          behavior="padding"
+          enabled
+          style={{ flex: 1 }}
+        >
+          <ScrollView>
             <StatusBar backgroundColor="black" barStyle="light-content" />
             <View style={styles.cardWhite}>
               <Text style={styles.title}>ADICIONAR SALDO</Text>
@@ -63,7 +65,7 @@ class AddCredit extends React.Component {
                   onPress={() => this.props.addValue(20)}
                 >
                   <Text
-                    styles={[
+                    style={[
                       styles.text,
                       { textAlign: "center", fontSize: 13 * fontSize }
                     ]}
@@ -77,7 +79,7 @@ class AddCredit extends React.Component {
                   onPress={() => this.props.addValue(50)}
                 >
                   <Text
-                    styles={[
+                    style={[
                       styles.text,
                       { textAlign: "center", fontSize: 13 * fontSize }
                     ]}
@@ -91,7 +93,7 @@ class AddCredit extends React.Component {
                   onPress={() => this.props.addValue(100)}
                 >
                   <Text
-                    styles={[
+                    style={[
                       styles.text,
                       { textAlign: "center", fontSize: 13 * fontSize }
                     ]}
@@ -100,16 +102,10 @@ class AddCredit extends React.Component {
                   </Text>
                 </TouchableOpacity>
 
-                <View style={styles.btn}>
+                <View>
                   <Input
-                    style={[
-                      styles.text,
-                      {
-                        width: "100%",
-                        textAlign: "center",
-                        fontSize: 13 * fontSize
-                      }
-                    ]}
+                    center
+                    widthInput={width}
                     value={outherValue}
                     keyboardType="numeric"
                     onChangeText={outherValue =>
@@ -150,22 +146,35 @@ class AddCredit extends React.Component {
                 </View>
                 <View style={styles.picker}>
                   <Picker
-                    selectedValue={this.props.money.cardSelect}
+                    // selectedValue={this.props.money.cardSelect}
                     onValueChange={itemValue =>
-                      this.props.saveSelect(itemValue, this.props.money.current)
+                      itemValue != 0
+                        ? this.props.saveSelect(
+                            itemValue,
+                            this.props.money.current
+                          )
+                        : null
                     }
                   >
+                    <Picker.Item label="Selecione seu cartão" value={0} />
+
                     {this.props.money.cards &&
-                      Object.values(this.props.money.cards).map((i, index) => (
-                        <Picker.Item key={index} label={i.name} value={i.num} />
-                      ))}
+                      Object.values(this.props.money.cards).map((i, index) => {
+                        return (
+                          <Picker.Item
+                            key={index}
+                            label={i.name}
+                            value={i.num}
+                          />
+                        );
+                      })}
                   </Picker>
                 </View>
               </View>
             </Modal>
-          </ImageBackground>
-        </ScrollView>
-      </KeyboardAvoidingView>
+          </ScrollView>
+        </KeyboardAvoidingView>
+      </ImageBackground>
     );
   }
 }
@@ -214,10 +223,10 @@ const styles = StyleSheet.create({
 
   btn: {
     paddingHorizontal: 30,
-    lineHeight: 54,
-    height: 54,
+    height: 60,
     borderColor: "#C9C9C9",
     borderWidth: 1,
+    borderRadius: 5,
     marginBottom: 14,
     justifyContent: "center",
     alignItems: "center"

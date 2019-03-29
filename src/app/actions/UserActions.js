@@ -496,6 +496,7 @@ export const saveCard = cards => dispatch => {
         .then(() => {
           dispatch(loading(false));
           dispatch(NavigationActions.back());
+          console.log("DEU");
         })
         .then(() => {
           dispatch(getCardsUser());
