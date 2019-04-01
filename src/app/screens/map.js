@@ -8,6 +8,7 @@ import {
   Text,
   TouchableOpacity,
   Animated,
+  TextInput,
   Dimensions
 } from "react-native";
 
@@ -40,7 +41,6 @@ import {
   setLocationSeach,
   currentLocation
 } from "../actions/MapActions";
-import Input from "../components/input";
 
 class MapHome extends React.Component {
   static navigationOptions = {
@@ -66,7 +66,7 @@ class MapHome extends React.Component {
       widthAnim,
       searchDestiny
     } = this.props.map;
-    console.log(this.props.map.location);
+    console.log(searchDestiny);
     const { count, limitTime } = this.props.home;
     var initialRegion = {
       latitude: parseFloat(location.latitude),
@@ -96,7 +96,8 @@ class MapHome extends React.Component {
                   height: 60
                 }}
               >
-                <Input
+                <TextInput
+                  underlineColorAndroid="transparent"
                   style={styles.input}
                   placeholder="Digite sua busca"
                   placeholderTextColor="#2B2B2B"

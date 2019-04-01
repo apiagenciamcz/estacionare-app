@@ -35,10 +35,10 @@ const options = {
   quality: 1
 };
 
-const Blob = RNFetchBlob.polyfill.Blob;
-const fs = RNFetchBlob.fs;
-window.XMLHttpRequest = RNFetchBlob.polyfill.XMLHttpRequest;
-window.Blob = Blob;
+// const Blob = RNFetchBlob.polyfill.Blob;
+// const fs = RNFetchBlob.fs;
+// window.XMLHttpRequest = RNFetchBlob.polyfill.XMLHttpRequest;
+// window.Blob = Blob;
 
 class Menu extends Component {
   constructor(props) {
@@ -106,6 +106,7 @@ class Menu extends Component {
 
   uploadImage = (uri, imageName, mime = "image/jpg") => {
     console.log(uri);
+    let fs;
     return new Promise((resolve, reject) => {
       const uploadUri =
         Platform.OS === "ios" ? uri.replace("file:///", "") : uri;

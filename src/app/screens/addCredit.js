@@ -34,6 +34,7 @@ class AddCredit extends React.Component {
   });
 
   componentDidMount() {
+    console.log(this.props);
     this.props.init();
   }
 
@@ -42,7 +43,7 @@ class AddCredit extends React.Component {
       Dimensions.get("window").width - Dimensions.get("window").width * 0.254;
     const { fontSize } = this.props.user;
     const { outherValue } = this.props.money;
-
+    const cards = this.props.money.cards || [];
     return (
       <ImageBackground
         source={require("../images/background.png")}
@@ -123,10 +124,9 @@ class AddCredit extends React.Component {
                 onPress={() => this.props.modalVisibleCard("visible")}
                 disabled={this.props.money.current > 0 ? false : true}
               >
-                <BtnPrimary text="CONFIRMAR COMPRA" />
+                <BtnPrimary text="CONFIRMAR COMPRA " />
               </TouchableOpacity>
             </View>
-
             <Modal
               onRequestClose={() => null}
               animationType="slide"
@@ -158,16 +158,10 @@ class AddCredit extends React.Component {
                   >
                     <Picker.Item label="Selecione seu cartão" value={0} />
 
-                    {this.props.money.cards &&
-                      Object.values(this.props.money.cards).map((i, index) => {
-                        return (
-                          <Picker.Item
-                            key={index}
-                            label={i.name}
-                            value={i.num}
-                          />
-                        );
-                      })}
+                    {cards &&
+                      Object.values(cards).map((i, index) => (
+                        <Picker.Item key={index} label={i.name} value={i.num} />
+                      ))}
                   </Picker>
                 </View>
               </View>

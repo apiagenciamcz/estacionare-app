@@ -129,7 +129,6 @@ export const setLocationSeach = (id, description) => (dispatch, getState) => {
     type: "CHANGE_SEARCH",
     payload: description
   });
-
   axios
     .get(
       `https://maps.googleapis.com/maps/api/place/details/json?placeid=${id}&fields=name,geometry&key=AIzaSyDqK_G4WO7USQbA5n0mhvK-yR7DeUBO17w`
