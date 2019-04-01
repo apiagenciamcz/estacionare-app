@@ -119,13 +119,14 @@ class Profile extends Component {
                   return (
                     <View style={styles.itemCar} key={index}>
                       <Input
+                        widthInput={140}
                         onFocus={() => this.props.changeOper(index, true)}
                         maxLength={8}
                         onChangeText={text =>
                           this.props.changeTextOper(index, text)
                         }
                         placeholder="Digite sua placa"
-                        style={[styles.plateCar, { fontSize: 14 * fontSize }]}
+                        //  style={[styles.plateCar, { fontSize: 14 * fontSize }]}
                         value={item.name}
                       />
 

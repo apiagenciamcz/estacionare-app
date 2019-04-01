@@ -28,7 +28,7 @@ export default class Input extends Component {
               ? {
                   width: this.props.widthInput || 260,
                   height: 60,
-                  color: "#09f",
+                  color: "#009eb1",
                   border: 5,
                   radius: 3,
                   opacity: 0.2,
@@ -41,14 +41,17 @@ export default class Input extends Component {
                   height: 60,
                   color: "#000",
                   border: 0,
-                  radius: 5
+                  radius: 7
                 }
           }
         >
           <View
             style={[
               styles.content,
-              { borderColor: this.state.isFocus ? "#09f" : "#C9C9C9" }
+              {
+                borderColor: this.state.isFocus ? "#009eb1" : "#C9C9C9",
+                width: this.props.widthInput || 260
+              }
             ]}
           >
             <TextInput
