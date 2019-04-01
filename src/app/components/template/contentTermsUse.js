@@ -21,11 +21,12 @@ class ContentTermsUse extends Component {
 
   render() {
     return (
-      <ScrollView
+      <View
         style={{
           backgroundColor: "#000",
           width: Dimensions.get("window").width + 80,
-          marginLeft: -32,
+          height: Dimensions.get("window").height - 110,
+          marginLeft: -8,
           marginTop: -20
         }}
       >
@@ -43,7 +44,7 @@ class ContentTermsUse extends Component {
           }}
           automaticallyAdjustContentInsets={false}
         />
-      </ScrollView>
+      </View>
     );
   }
 }
