@@ -70,9 +70,7 @@ class PayStepOne extends React.Component {
             onPress={() => this.props.getStates()}
             style={[styles.placeholder, { marginTop: 30 }]}
           >
-            <Text styles={{ fontSize: (16 * fontSize).toFixed() }}>
-              {state != "" ? state : "Selecione seu estado"}
-            </Text>
+            <Text>{state != "" ? state : "Selecione seu estado"}</Text>
             <FontAwesome style={styles.icon}>{Icons.chevronDown}</FontAwesome>
           </TouchableOpacity>
 
@@ -116,9 +114,7 @@ class PayStepOne extends React.Component {
             style={styles.placeholder}
             disabled={modalCity}
           >
-            <Text styles={{ fontSize: (16 * fontSize).toFixed() }}>
-              {city != "" ? city : "Selecione sua cidade"}
-            </Text>
+            <Text>{city != "" ? city : "Selecione sua cidade"}</Text>
             <FontAwesome style={styles.icon}>{Icons.chevronDown}</FontAwesome>
           </TouchableOpacity>
 
@@ -200,7 +196,6 @@ const styles = StyleSheet.create({
     paddingRight: 20,
     paddingTop: 16,
     paddingBottom: 16,
-    lineHeight: 42,
     borderColor: "#C9C9C9",
     borderWidth: 1,
     marginBottom: 14,

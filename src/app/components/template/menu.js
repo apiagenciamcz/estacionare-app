@@ -66,13 +66,13 @@ class Menu extends Component {
         )
         .catch(err => console.error("revokeAccess", err));
     } else if (provider == "facebook.com") {
-      LoginManager.logout(data => {
+      // LoginManager.logout(data => {
         navigation.closeDrawer();
 
         setTimeout(() => {
           navigation.navigate("Welcome");
         }, 1000);
-      });
+      // });
     } else {
       firebase
         .auth()
