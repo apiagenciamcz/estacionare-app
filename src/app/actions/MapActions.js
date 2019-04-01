@@ -192,7 +192,10 @@ export const animatedSearch = (widthAnim, flag) => dispatch => {
       payload: null
     });
 
-    dispatch(dragMap(true));
+    dispatch({
+      type: "DRAG",
+      payload: true
+    });
 
     Animated.timing(widthAnim, {
       toValue: 0,
