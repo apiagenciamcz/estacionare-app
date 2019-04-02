@@ -65,6 +65,7 @@ class TaxRegulation extends React.Component {
     const { fontSize } = this.props.user;
     const width =
       Dimensions.get("window").width - Dimensions.get("window").width * 0.12;
+    console.log(licencePlates);
     return (
       <View style={styles.container}>
         <StatusBar backgroundColor="black" barStyle="dark-content" />
@@ -131,7 +132,7 @@ class TaxRegulation extends React.Component {
             SELECIONE A PLACA
           </Text>
 
-          {licencePlates &&
+          {/* {licencePlates &&
             Object.values(licencePlates).map((item, index) => (
               <TouchableOpacity
                 style={styles.placeholderPlate}
@@ -147,7 +148,7 @@ class TaxRegulation extends React.Component {
                   {item.name}
                 </Text>
               </TouchableOpacity>
-            ))}
+            ))} */}
 
           <Modal
             onRequestClose={() => null}
