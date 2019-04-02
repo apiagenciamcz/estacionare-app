@@ -41,6 +41,8 @@ import DrawerHome from "./app/screens/drawer";
 import DrawerMap from "./app/screens/drawerMap";
 
 const AppRouteConfigs = {
+  PayStepOne: { screen: PayStepOne },
+
   Loader: { screen: Loader, navigationOptions: { header: null } },
   Login: { screen: Login },
   Welcome: { screen: Welcome },
@@ -56,7 +58,6 @@ const AppRouteConfigs = {
     screen: DrawerHome,
     navigationOptions: { header: null, gesturesEnabled: false }
   },
-  PayStepOne: { screen: PayStepOne },
   PayStepTwo: { screen: PayStepTwo },
   PayStepThree: { screen: PayStepThree },
   PayStepFour: { screen: PayStepFour },

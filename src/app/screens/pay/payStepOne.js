@@ -55,7 +55,7 @@ class PayStepOne extends React.Component {
       visibleCity
     } = this.props.location;
     const { fontSize } = this.props.user;
-
+    console.log("LOCATIONS", this.props.location);
     return (
       <ImageBackground
         source={require("../../images/background.png")}
@@ -70,7 +70,13 @@ class PayStepOne extends React.Component {
             onPress={() => this.props.getStates()}
             style={[styles.placeholder, { marginTop: 30 }]}
           >
-            <Text>{state != "" ? state : "Selecione seu estado"}</Text>
+            <Text>
+              {state.hasOwnProperty("id")
+                ? state.id
+                : state !== ""
+                ? state
+                : "Selecione seu estado"}
+            </Text>
             <FontAwesome style={styles.icon}>{Icons.chevronDown}</FontAwesome>
           </TouchableOpacity>
 
@@ -94,7 +100,13 @@ class PayStepOne extends React.Component {
                   onPress={() => this.props.modalVisibleState("hidden")}
                 >
                   <Picker
-                    selectedValue={state}
+                    selectedValue={
+                      state.hasOwnProperty("id")
+                        ? state.id
+                        : state !== ""
+                        ? state
+                        : "Selecione seu estado"
+                    }
                     onValueChange={itemValue =>
                       this.props.setStateLocation(itemValue)
                     }
@@ -114,7 +126,13 @@ class PayStepOne extends React.Component {
             style={styles.placeholder}
             disabled={modalCity}
           >
-            <Text>{city != "" ? city : "Selecione sua cidade"}</Text>
+            <Text>
+              {allCitys.length > 1
+                ? "Selecione sua cidade"
+                : city != ""
+                ? city
+                : "Selecione sua cidade"}
+            </Text>
             <FontAwesome style={styles.icon}>{Icons.chevronDown}</FontAwesome>
           </TouchableOpacity>
 

@@ -73,14 +73,13 @@ export const loginFacebook = () => dispatch => {
                   AsyncStorage.setItem("LoggedUser", "true").then(() => {
                     AsyncStorage.setItem("CurrentUser", currentUser).then(
                       () => {
-                        dispatch(loading(false));
-
                         setTimeout(() => {
                           dispatch(
                             NavigationActions.navigate({
                               routeName: "Home"
                             })
                           );
+                          dispatch(loading(false));
                         }, 1000);
                       }
                     );
