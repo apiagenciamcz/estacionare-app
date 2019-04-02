@@ -33,7 +33,7 @@ export default function( state = INITIAL_STATE, action ) {
         case 'GET_CITYS':
             return {
                 ...state,
-                allCitys: action.payload.data,
+                allCitys: action.payload.data || [],
             }
         case 'CHANGE_CITY':
             return {

@@ -35,23 +35,7 @@ class RegisterAcceptTermsUse extends React.Component {
 
         <ContentTermsUse />
 
-        <View style={styles.buttons}>
-          <View style={styles.red}>
-            <TouchableOpacity
-              onPress={() =>
-                navigate("RegisterStepOne", { name: "RegisterStepOne" })
-              }
-            >
-              <Text style={styles.textButton}>NÃO ACEITO</Text>
-            </TouchableOpacity>
-          </View>
-
-          <View style={styles.green}>
-            <TouchableOpacity onPress={() => this.props.saveTermsOfUse()}>
-              <Text style={styles.textButton}>ACEITO</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
+      
       </View>
     );
   }

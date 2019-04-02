@@ -248,7 +248,6 @@ const styles = StyleSheet.create({
 
   placeholderPlate: {
     paddingHorizontal: 30,
-    lineHeight: 54,
     height: 60,
     borderColor: "#C9C9C9",
     borderWidth: 1,
