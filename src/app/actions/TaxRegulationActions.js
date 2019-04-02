@@ -41,21 +41,22 @@ export const changeStateFlag = () => {
 }
 
 export const init = () => (dispatch) => {
-        
+    let execute=true;
     dispatch(getCars())
-
+    console.log("EXECUTOU")
+    if(execute){
+        execute = !execute;
     navigator.geolocation.getCurrentPosition(
         (position) => {
         axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${position.coords.latitude},${position.coords.longitude}&key=AIzaSyDqK_G4WO7USQbA5n0mhvK-yR7DeUBO17w`)
             .then((response) => {
                 let city = response.data.results[0].address_components[3].long_name
-                let state = response.data.results[0].address_components[5].short_name
-
+                let state = response.data.results[0].address_components[4].short_name
                 dispatch({
                     type: 'CHANGE_LOCATION',
                     payload: { city, state }
                 })
-
+                console.log(response.data)
                 dispatch(setCity(city))
                 dispatch(getCitys(state))
 
@@ -64,6 +65,7 @@ export const init = () => (dispatch) => {
         (error) => console.log(error),
         { enableHighAccuracy: false, timeout: 20000, maximumAge: 1000 },
     )
+}
 }
 
 export const getCitys = (uf) => (dispatch) => {

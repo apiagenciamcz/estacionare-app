@@ -132,7 +132,7 @@ class TaxRegulation extends React.Component {
             SELECIONE A PLACA
           </Text>
 
-          {/* {licencePlates &&
+          {licencePlates &&
             Object.values(licencePlates).map((item, index) => (
               <TouchableOpacity
                 style={styles.placeholderPlate}
@@ -148,7 +148,7 @@ class TaxRegulation extends React.Component {
                   {item.name}
                 </Text>
               </TouchableOpacity>
-            ))} */}
+            ))}
 
           <Modal
             onRequestClose={() => null}
