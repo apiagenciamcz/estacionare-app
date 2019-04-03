@@ -5,7 +5,7 @@ import { NavigationActions } from "react-navigation";
 import { AccessToken, LoginManager } from "react-native-fbsdk";
 import { GoogleSignin } from "react-native-google-signin";
 import CardValidator from "card-validator";
-
+import { loginFacebook } from "../actions/LoginActions";
 // Create an account using the email/password method
 export const handleCreateLogin = (
   email,
@@ -100,34 +100,84 @@ export const handlerCreateFacebook = () => dispatch => {
 
         firebase
           .auth()
-          .signInWithCredential(credential)
-          .then(user => {
-            console.log(user, "USERRR");
-            const currentUser = user._user.uid;
-            AsyncStorage.setItem("CurrentUser", currentUser).then(() => {
-              dispatch(loading(false));
-              dispatch(
-                NavigationActions.navigate({
-                  routeName: "RegisterAcceptTermsUse"
-                })
-              );
-            });
+          .signInAndRetrieveDataWithCredential(credential)
+          .then(async current => {
+            console.log(current);
+            if (current.additionalUserInfo.isNewUser) {
+              firebase
+                .auth()
+                .signInWithCredential(credential)
+                .then(user => {
+                  console.log(user, "USERRR");
+                  const currentUser = user._user.uid;
+                  AsyncStorage.setItem("CurrentUser", currentUser).then(() => {
+                    dispatch(loading(false));
+                    dispatch(
+                      NavigationActions.navigate({
+                        routeName: "RegisterAcceptTermsUse"
+                      })
+                    );
+                  });
+                });
+            } else {
+              try {
+                firebase
+                  .database()
+                  .ref(`users/${current.user._user.uid}`)
+                  .once("value")
+                  .then(snapshot => {
+                    console.log("snapshot", snapshot);
+                    if (snapshot.val() != null) {
+                      AsyncStorage.setItem("LoggedUser", "true").then(() => {
+                        AsyncStorage.setItem(
+                          "CurrentUser",
+                          current.user._user.uid
+                        ).then(() => {
+                          setTimeout(() => {
+                            dispatch(loading(false));
+                            dispatch(
+                              NavigationActions.navigate({
+                                routeName: "Home"
+                              })
+                            );
+                          }, 1000);
+                        });
+                      });
+                    } else {
+                      setTimeout(() => {
+                        dispatch(loading(false));
+                        setTimeout(() => {
+                          Alert.alert(
+                            "Ops, algo deu errado",
+                            "Não encontramos suas credenciais no nosso sistema, por favor cadastre-se para realizar o login!"
+                          );
+                        }, 100);
+                      }, 1000);
+                    }
+                  });
+              } catch (err) {
+                console.log("errVagab", err);
+              }
+            }
+          })
+          .catch(err => {
+            console.log("errr", err);
           });
-      })
-      .then(currentUser => {
-        const user = currentUser._user.uid;
-        AsyncStorage.setItem("CurrentUser", user).then(() => {
-          dispatch(loading(false));
-          dispatch(
-            NavigationActions.navigate({
-              routeName: "RegisterAcceptTermsUse"
-            })
-          );
-        });
-      })
-      .catch(error => {
-        console.log(error);
       });
+    // .then(currentUser => {
+    //   const user = currentUser._user.uid;
+    //   AsyncStorage.setItem("CurrentUser", user).then(() => {
+    //     dispatch(loading(false));
+    //     dispatch(
+    //       NavigationActions.navigate({
+    //         routeName: "RegisterAcceptTermsUse"
+    //       })
+    //     );
+    //   });
+    // })
+    // .catch(error => {
+    //   console.log(error);
+    // });
   }, 1000);
 };
 

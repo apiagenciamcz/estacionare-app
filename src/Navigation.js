@@ -41,14 +41,13 @@ import DrawerHome from "./app/screens/drawer";
 import DrawerMap from "./app/screens/drawerMap";
 
 const AppRouteConfigs = {
- 
   Loader: { screen: Loader, navigationOptions: { header: null } },
   Login: { screen: Login },
   Welcome: { screen: Welcome },
   RegisterStepOne: { screen: RegisterStepOne },
   RegisterStepTwo: { screen: RegisterStepTwo },
-  RegisterStepThree: { screen: RegisterStepThree },
   RegisterStepFour: { screen: RegisterStepFour },
+  RegisterStepThree: { screen: RegisterStepThree },
   RegisterAcceptTermsUse: { screen: RegisterAcceptTermsUse },
   TermsUse: { screen: TermsUse },
   Confirm: { screen: Confirm },

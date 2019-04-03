@@ -45,107 +45,105 @@ class RegisterStepThree extends React.Component {
     const { cards } = this.props.register;
 
     return (
-      <KeyboardAvoidingView
-        keyboardVerticalOffset={Platform.OS == "android" ? -500 : 0}
-        behavior="padding"
-        enabled
-        style={{ flex: 1 }}
-      >
-        <ScrollView>
-          <View style={styles.main}>
-            <StatusBar backgroundColor="black" barStyle="light-content" />
-            <View style={styles.container}>
-              <TitleCard
-                text="MÉTODO DE PAGAMENTO"
-                offset="3"
-                limit="3"
-                style={styles.titles}
-              />
+      // <KeyboardAvoidingView
+      //   keyboardVerticalOffset={Platform.OS == "android" ? -500 : 0}
+      //   behavior="padding"
+      //   enabled
+      //   style={{ flex: 1 }}
+      // >
+      <ScrollView>
+        <View style={styles.main}>
+          <StatusBar backgroundColor="black" barStyle="light-content" />
+          <View style={styles.container}>
+            <TitleCard
+              text="MÉTODO DE PAGAMENTO"
+              offset="3"
+              limit="3"
+              style={styles.titles}
+            />
 
-              <View style={styles.row}>
-                <View style={styles.formGroupFull}>
-                  <Text style={styles.label}>NÚMERO DO CARTÃO</Text>
+            <View style={styles.row}>
+              <View style={styles.formGroupFull}>
+                <Text style={styles.label}>NÚMERO DO CARTÃO</Text>
 
-                  <Input
-                    widthInput={290}
-                    placeholder="0000 0000 0000 0000"
-                    placeholderTextColor="#2B2B2B"
-                    keyboardType="numeric"
-                    maxLength={19}
-                    onChangeText={value => this.props.validateNumberCard(value)}
-                    value={cards.num}
-                  />
+                <Input
+                  widthInput={290}
+                  placeholder="0000 0000 0000 0000"
+                  placeholderTextColor="#2B2B2B"
+                  keyboardType="numeric"
+                  maxLength={19}
+                  onChangeText={value => this.props.validateNumberCard(value)}
+                  value={cards.num}
+                />
 
-                  {cards.flag != "" && (
-                    <Text style={styles.flag}>{cards.flag}</Text>
-                  )}
-                </View>
-              </View>
-
-              <View style={styles.row}>
-                <View style={styles.formGroup}>
-                  <Text style={styles.label}>DATA DE VALIDADE</Text>
-
-                  <Input
-                    widthInput={100}
-                    style={styles.input}
-                    placeholder="00 / 00"
-                    placeholderTextColor="#2B2B2B"
-                    keyboardType="numeric"
-                    maxLength={5}
-                    onChangeText={value => this.props.validateDateCard(value)}
-                    value={cards.date}
-                  />
-                </View>
-
-                <View style={styles.formGroup}>
-                  <Text style={styles.label}>CVV</Text>
-
-                  <Input
-                    widthInput={100}
-                    style={styles.input}
-                    placeholder="000"
-                    placeholderTextColor="#2B2B2B"
-                    keyboardType="numeric"
-                    maxLength={3}
-                    onChangeText={value => this.props.validateCvvCard(value)}
-                    value={cards.cvv}
-                  />
-                </View>
-              </View>
-
-              <View style={styles.row}>
-                <View style={styles.formGroupFull}>
-                  <Text style={styles.label}>NOME IGUAL DO CARTÃO</Text>
-
-                  <Input
-                    widthInput={290}
-                    style={styles.input}
-                    placeholder=""
-                    placeholderTextColor="#2B2B2B"
-                    onChangeText={value => this.props.validateNameCard(value)}
-                    value={cards.name}
-                  />
-                </View>
+                {cards.flag != "" && (
+                  <Text style={styles.flag}>{cards.flag}</Text>
+                )}
               </View>
             </View>
 
-            <View style={styles.buttons}>
-              <TouchableOpacity onPress={() => this.props.saveCard(cards)}>
-                <BtnPrimary text="ADICIONAR MÉTODO DE PAGAMENTO" />
-              </TouchableOpacity>
+            <View style={styles.row}>
+              <View style={styles.formGroup}>
+                <Text style={styles.label}>DATA DE VALIDADE</Text>
 
-              <TouchableOpacity
-                onPress={() =>
-                  this.props.navigation.navigate("RegisterStepFour")
-                }
-              >
-                <Text style={styles.TextGray}>PULAR ESTA ETAPA</Text>
-              </TouchableOpacity>
+                <Input
+                  widthInput={100}
+                  style={styles.input}
+                  placeholder="00 / 00"
+                  placeholderTextColor="#2B2B2B"
+                  keyboardType="numeric"
+                  maxLength={5}
+                  onChangeText={value => this.props.validateDateCard(value)}
+                  value={cards.date}
+                />
+              </View>
+
+              <View style={styles.formGroup}>
+                <Text style={styles.label}>CVV</Text>
+
+                <Input
+                  widthInput={100}
+                  style={styles.input}
+                  placeholder="000"
+                  placeholderTextColor="#2B2B2B"
+                  keyboardType="numeric"
+                  maxLength={3}
+                  onChangeText={value => this.props.validateCvvCard(value)}
+                  value={cards.cvv}
+                />
+              </View>
+            </View>
+
+            <View style={styles.row}>
+              <View style={styles.formGroupFull}>
+                <Text style={styles.label}>NOME IGUAL DO CARTÃO</Text>
+
+                <Input
+                  widthInput={290}
+                  style={styles.input}
+                  placeholder=""
+                  placeholderTextColor="#2B2B2B"
+                  onChangeText={value => this.props.validateNameCard(value)}
+                  value={cards.name}
+                />
+              </View>
             </View>
           </View>
-        </ScrollView>
-      </KeyboardAvoidingView>
+
+          <View style={styles.buttons}>
+            <TouchableOpacity onPress={() => this.props.saveCard(cards)}>
+              <BtnPrimary text="ADICIONAR MÉTODO DE PAGAMENTO" />
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => this.props.navigation.navigate("RegisterStepFour")}
+            >
+              <Text style={styles.TextGray}>PULAR ESTA ETAPA</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </ScrollView>
+      // </KeyboardAvoidingView>
     );
   }
 }

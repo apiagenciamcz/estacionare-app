@@ -74,12 +74,12 @@ export const loginFacebook = () => dispatch => {
                     AsyncStorage.setItem("CurrentUser", currentUser).then(
                       () => {
                         setTimeout(() => {
+                          dispatch(loading(false));
                           dispatch(
                             NavigationActions.navigate({
                               routeName: "Home"
                             })
                           );
-                          dispatch(loading(false));
                         }, 1000);
                       }
                     );
