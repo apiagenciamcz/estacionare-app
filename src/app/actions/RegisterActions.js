@@ -144,15 +144,23 @@ export const handlerCreateFacebook = () => dispatch => {
                         });
                       });
                     } else {
-                      setTimeout(() => {
-                        dispatch(loading(false));
-                        setTimeout(() => {
-                          Alert.alert(
-                            "Ops, algo deu errado",
-                            "Não encontramos suas credenciais no nosso sistema, por favor cadastre-se para realizar o login!"
+                      firebase
+                        .auth()
+                        .signInWithCredential(credential)
+                        .then(user => {
+                          console.log(user, "USERRR");
+                          const currentUser = user._user.uid;
+                          AsyncStorage.setItem("CurrentUser", currentUser).then(
+                            () => {
+                              dispatch(loading(false));
+                              dispatch(
+                                NavigationActions.navigate({
+                                  routeName: "RegisterAcceptTermsUse"
+                                })
+                              );
+                            }
                           );
-                        }, 100);
-                      }, 1000);
+                        });
                     }
                   });
               } catch (err) {

@@ -180,14 +180,14 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     alignItems: "stretch",
-    marginTop: 20
+    marginTop: 10
   },
 
   row: {
     flexDirection: "row",
     justifyContent: "flex-start",
     alignItems: "stretch",
-    marginTop: 20
+    marginTop: 10
   },
 
   ViewBrown: {
@@ -231,7 +231,7 @@ const styles = StyleSheet.create({
   },
 
   buttons: {
-    marginTop: 30,
+    marginTop: 20,
     alignItems: "center",
     justifyContent: "center"
   },
