@@ -131,7 +131,7 @@ class TaxRegulation extends React.Component {
           <Text style={[styles.title, { fontSize: 18 * fontSize }]}>
             SELECIONE A PLACA
           </Text>
-
+{console.log(licencePlates)}
           {licencePlates &&
             Object.values(licencePlates).map((item, index) => (
               <TouchableOpacity
