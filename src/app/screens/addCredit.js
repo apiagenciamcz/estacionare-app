@@ -27,17 +27,41 @@ import {
 } from "../actions/MoneyActions";
 import Input from "../components/input";
 
+const valores = [
+  {
+    id: 0,
+    valor: 20
+  },
+  {
+    id: 1,
+    valor: 50
+  },
+  {
+    id: 2,
+    valor: 100
+  }
+];
+
 class AddCredit extends React.Component {
   static navigationOptions = ({ navigation }) => ({
     headerTransparent: true,
     headerLeft: <IconLeft navigation={navigation} type="light" />
   });
-
+  state = {
+    selected: null
+  };
   componentDidMount() {
     console.log(this.props);
     this.props.init();
   }
 
+  addvalor(valor, index) {
+    this.setState({
+      selected: index
+    });
+
+    this.props.addValue(valor);
+  }
   render() {
     const width =
       Dimensions.get("window").width - Dimensions.get("window").width * 0.254;
@@ -61,47 +85,26 @@ class AddCredit extends React.Component {
               <Text style={styles.title}>ADICIONAR SALDO</Text>
 
               <View style={styles.containerNumber}>
-                <TouchableOpacity
-                  style={styles.btn}
-                  onPress={() => this.props.addValue(20)}
-                >
-                  <Text
+                {valores.map((item, index) => (
+                  <TouchableOpacity
                     style={[
-                      styles.text,
-                      { textAlign: "center", fontSize: 13 * fontSize }
+                      styles.btn,
+                      this.state.selected == index
+                        ? { borderColor: "#09f" }
+                        : null
                     ]}
+                    onPress={() => this.addvalor(item.valor, index)}
                   >
-                    R$ 20,00
-                  </Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity
-                  style={styles.btn}
-                  onPress={() => this.props.addValue(50)}
-                >
-                  <Text
-                    style={[
-                      styles.text,
-                      { textAlign: "center", fontSize: 13 * fontSize }
-                    ]}
-                  >
-                    R$ 50,00
-                  </Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity
-                  style={styles.btn}
-                  onPress={() => this.props.addValue(100)}
-                >
-                  <Text
-                    style={[
-                      styles.text,
-                      { textAlign: "center", fontSize: 13 * fontSize }
-                    ]}
-                  >
-                    R$ 100,00
-                  </Text>
-                </TouchableOpacity>
+                    <Text
+                      style={[
+                        styles.text,
+                        { textAlign: "center", fontSize: 13 * fontSize }
+                      ]}
+                    >
+                      {` R$ ${item.valor},00`}
+                    </Text>
+                  </TouchableOpacity>
+                ))}
 
                 <View>
                   <Input

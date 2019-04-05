@@ -139,7 +139,7 @@ PODS:
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
   - Protobuf (3.6.1)
-  - yoga (0.56.0.React)
+  - yoga (0.55.4.React)
 
 DEPENDENCIES:
   - FBSDKCoreKit
@@ -214,13 +214,13 @@ SPEC CHECKSUMS:
   GoogleSignIn: 11183592dc63e105475c7305a325045ff95e02b7
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   GoogleUtilities: abb092d2c12e817fa3e0e7b274987dd72fb86ec3
-  GTMOAuth2: c77fe325e4acd453837e72d91e3b5f13116857b2
+  GTMOAuth2: e8b6512c896235149df975c41d9a36c868ab7fba
   GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
-  yoga: b1ce48b6cf950b98deae82838f5173ea7cf89e85
+  yoga: c3ce6137f85f60c93a834235d7f08e2b44a42eed
 
-PODFILE CHECKSUM: d12e536f1edd8289093a1aa2a79c06459a0bcb48
+PODFILE CHECKSUM: f31f61e4cb5333fae34af39cacada2d5bfffb191
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.1
