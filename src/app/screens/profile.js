@@ -10,7 +10,8 @@ import {
   Modal,
   TouchableWithoutFeedback,
   Slider,
-  Platform
+  Platform,
+  Alert
 } from "react-native";
 
 import { connect } from "react-redux";
@@ -51,7 +52,13 @@ class Profile extends Component {
     this.props.getCarsUser();
     this.props.getFontSize();
   }
-
+  addCar() {
+    if (Object.keys(this.props.user.cars).length < 3) {
+      this.props.addCar();
+    } else {
+      Alert.alert("Erro", "Você pode inserir apenas 3 Veículos");
+    }
+  }
   render() {
     const { loading, cars, fontSize, name } = this.props.user;
 
@@ -116,18 +123,17 @@ class Profile extends Component {
 
               {cars &&
                 Object.keys(cars).map(index => {
-                  
                   let item = cars[index];
 
                   return (
                     <View style={styles.itemCar} key={index}>
                       <Input
                         widthInput={140}
-                        onFocus={() => this.props.changeOper(index, true)}
                         maxLength={7}
-                        onChangeText={text =>
-                          this.props.changeTextOper(index, text)
-                        }
+                        onFocus={() => this.props.changeOper(index, true)}
+                        onChangeText={text => {
+                          this.props.changeTextOper(index, text);
+                        }}
                         placeholder="Digite sua placa"
                         //  style={[styles.plateCar, { fontSize: 14 * fontSize }]}
                         value={item.name}
@@ -158,7 +164,10 @@ class Profile extends Component {
                           </TouchableOpacity>
 
                           <TouchableOpacity
-                            onPress={() => this.props.deleteEditCar(index)}
+                            onPress={() => {
+                              this.props.deleteEditCar(index);
+                              this.setState({ car: this.state.car-- });
+                            }}
                             style={[
                               styles.itemEditable,
                               { backgroundColor: "#C12020" }
@@ -175,10 +184,10 @@ class Profile extends Component {
                 })}
             </View>
           </View>
-          {cars.length < 3 && (
+          {this.state.car < 3 && (
             <View style={styles.buttons}>
               <View style={styles.ViewBrown}>
-                <TouchableOpacity onPress={() => this.props.addCar()}>
+                <TouchableOpacity onPress={() => this.addCar()}>
                   <Text style={styles.TextBrown}>ADICIONAR NOVO CARRO</Text>
                 </TouchableOpacity>
               </View>

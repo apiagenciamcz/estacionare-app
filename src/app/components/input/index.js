@@ -19,6 +19,10 @@ export default class Input extends Component {
   state = {
     isFocus: false
   };
+  focus() {
+    this.props.onFocus();
+    this.setState({ isFocus: !this.state.isFocus });
+  }
   render() {
     return (
       <View style={{ marginBottom: 10 }}>
@@ -67,7 +71,11 @@ export default class Input extends Component {
                   textAlign: this.props.center ? "center" : null
                 }
               ]}
-              onFocus={() => this.setState({ isFocus: !this.state.isFocus })}
+              onFocus={
+                this.props.onFocus
+                  ? () => this.focus()
+                  : () => this.setState({ isFocus: !this.state.isFocus })
+              }
               onBlur={() => this.setState({ isFocus: !this.state.isFocus })}
               // onChangeText={() => this.props.onChangeText}
               underlineColorAndroid="transparent"

@@ -95,6 +95,7 @@ export const changeOper = (index, flag) => (dispatch, getState) => {
 };
 
 export const changeTextOper = (index, text) => (dispatch, getState) => {
+ 
   let cars = getState().user.cars;
   cars[index].name = text;
 
