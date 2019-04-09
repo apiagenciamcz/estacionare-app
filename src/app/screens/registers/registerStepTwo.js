@@ -156,7 +156,7 @@ class RegisterStepTwo extends React.Component {
                         this.props.addLicensePlate(cars, boardCar, index)
                       }
                       value={item.name}
-                      maxLength={8}
+                      maxLength={7}
                     />
 
                     <TouchableOpacity

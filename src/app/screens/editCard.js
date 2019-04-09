@@ -107,7 +107,7 @@ class EditCard extends React.Component {
 
                 <View style={styles.formGroup}>
                   <Text style={[styles.label, { fontSize: 10 * fontSize }]}>
-                    CVV
+                    CÓDIGO DE ACESSO
                   </Text>
 
                   <Input

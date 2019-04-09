@@ -43,7 +43,9 @@ class Profile extends Component {
   static navigationOptions = () => ({
     title: "PERFIL"
   });
-
+  state = {
+    car: 0
+  };
   componentDidMount() {
     this.props.getUser();
     this.props.getCarsUser();
@@ -114,6 +116,7 @@ class Profile extends Component {
 
               {cars &&
                 Object.keys(cars).map(index => {
+                  
                   let item = cars[index];
 
                   return (
@@ -121,7 +124,7 @@ class Profile extends Component {
                       <Input
                         widthInput={140}
                         onFocus={() => this.props.changeOper(index, true)}
-                        maxLength={8}
+                        maxLength={7}
                         onChangeText={text =>
                           this.props.changeTextOper(index, text)
                         }
@@ -172,14 +175,15 @@ class Profile extends Component {
                 })}
             </View>
           </View>
-
-          <View style={styles.buttons}>
-            <View style={styles.ViewBrown}>
-              <TouchableOpacity onPress={() => this.props.addCar()}>
-                <Text style={styles.TextBrown}>ADICIONAR NOVO CARRO</Text>
-              </TouchableOpacity>
+          {cars.length < 3 && (
+            <View style={styles.buttons}>
+              <View style={styles.ViewBrown}>
+                <TouchableOpacity onPress={() => this.props.addCar()}>
+                  <Text style={styles.TextBrown}>ADICIONAR NOVO CARRO</Text>
+                </TouchableOpacity>
+              </View>
             </View>
-          </View>
+          )}
 
           <Modal
             onRequestClose={() => null}

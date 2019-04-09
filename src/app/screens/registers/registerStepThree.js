@@ -99,7 +99,7 @@ class RegisterStepThree extends React.Component {
               </View>
 
               <View style={styles.formGroup}>
-                <Text style={styles.label}>CVV</Text>
+                <Text style={styles.label}> CÓDIGO DE ACESSO</Text>
 
                 <Input
                   widthInput={100}

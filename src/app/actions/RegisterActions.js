@@ -283,7 +283,7 @@ export const saveTermsOfUse = () => dispatch => {
 
 export const addLicensePlate = (cars, boardCar, key) => {
   const carsClone = cars;
-  boardCar = boardCar.length == 3 ? boardCar + "-" : boardCar;
+  // boardCar = boardCar.length == 3 ? boardCar + "-" : boardCar;
   carsClone[key].name = boardCar;
   return {
     type: "CHANGE_CARS",
