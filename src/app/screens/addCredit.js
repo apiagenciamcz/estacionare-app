@@ -58,7 +58,7 @@ class AddCredit extends React.Component {
           <ScrollView>
             <StatusBar backgroundColor="black" barStyle="light-content" />
             <View style={styles.cardWhite}>
-              <Text style={styles.title}>ADICIONAR SALDO</Text>
+              <Text style={styles.title}>ADICIONAR VALOR</Text>
 
               <View style={styles.containerNumber}>
                 <TouchableOpacity

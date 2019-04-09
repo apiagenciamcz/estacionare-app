@@ -270,7 +270,7 @@ const styles = StyleSheet.create({
     fontFamily: "Poppins-Italic",
     position: "absolute",
     top: 40,
-    right: -25
+    right: 10
   },
 
   input: {

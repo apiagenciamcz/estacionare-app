@@ -28,7 +28,7 @@ import { getFontSize } from "../actions/UserActions";
 class Home extends React.Component {
   static navigationOptions = {
     title: "HOME",
-    gesturesEnabled: false
+    gesturesEnabled: false,
   };
 
   constructor(props) {
@@ -91,7 +91,7 @@ class Home extends React.Component {
             <View style={styles.grayBox}>
               <TouchableOpacity onPress={() => navigate("AddCredit")}>
                 <Text style={[styles.addCash, { fontSize: 10 * fontSize }]}>
-                  ADICIONAR SALDO
+                  ADICIONAR VALOR
                 </Text>
               </TouchableOpacity>
             </View>
