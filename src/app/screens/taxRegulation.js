@@ -47,7 +47,7 @@ class TaxRegulation extends React.Component {
     super(props);
   }
 
-  componentDidMount = () => {
+  componentWillMount = () => {
     this.props.init();
     this.props.getFontSize();
   };
@@ -65,7 +65,7 @@ class TaxRegulation extends React.Component {
     const { fontSize } = this.props.user;
     const width =
       Dimensions.get("window").width - Dimensions.get("window").width * 0.12;
-    console.log(licencePlates);
+    console.log("TESTE", licencePlates);
     return (
       <View style={styles.container}>
         <StatusBar backgroundColor="black" barStyle="dark-content" />
@@ -131,8 +131,8 @@ class TaxRegulation extends React.Component {
           <Text style={[styles.title, { fontSize: 18 * fontSize }]}>
             SELECIONE A PLACA
           </Text>
-          {licencePlates &&
-            Object.values(licencePlates).map((item, index) => (
+          {licencePlates._value &&
+            Object.values(licencePlates._value).map((item, index) => (
               <TouchableOpacity
                 style={styles.placeholderPlate}
                 key={index}

@@ -108,13 +108,13 @@ export const getLocations = () => dispatch => {
             payload: city
           });
 
-          setTimeout(()=>{
-              dispatch(
-                  NavigationActions.navigate({
-                      routeName: 'PayStepTwo',
-                  })
-              )
-          },1000)
+          setTimeout(() => {
+            dispatch(
+              NavigationActions.navigate({
+                routeName: "PayStepTwo"
+              })
+            );
+          }, 1000);
         });
     },
     error => console.log(error),
