@@ -47,7 +47,7 @@ class Profile extends Component {
   state = {
     car: 0
   };
-  componentDidMount() {
+  componentWillMount() {
     this.props.getUser();
     this.props.getCarsUser();
     this.props.getFontSize();
@@ -61,7 +61,7 @@ class Profile extends Component {
   }
   render() {
     const { loading, cars, fontSize, name } = this.props.user;
-
+    console.log(this.props.user, "CONS");
     return (
       <KeyboardAvoidingView
         keyboardVerticalOffset={Platform.OS == "android" ? -500 : 0}

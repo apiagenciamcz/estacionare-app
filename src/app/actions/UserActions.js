@@ -30,8 +30,8 @@ export const getUser = () => dispatch => {
   });
 };
 
-export const getCarsUser = () => dispatch => {
-  AsyncStorage.getItem("CurrentUser").then(userID => {
+export const getCarsUser = async () => dispatch => {
+ await  AsyncStorage.getItem("CurrentUser").then(userID => {
     firebase
       .database()
       .ref(`users/${userID}/cars`)
@@ -95,7 +95,6 @@ export const changeOper = (index, flag) => (dispatch, getState) => {
 };
 
 export const changeTextOper = (index, text) => (dispatch, getState) => {
- 
   let cars = getState().user.cars;
   cars[index].name = text;
 
